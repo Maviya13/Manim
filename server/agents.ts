@@ -2,7 +2,10 @@ import { GoogleGenAI } from "@google/genai";
 import type { ScenePlan, ValidationResult, AgentLog } from "@shared/schema";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
-
+console.log(
+  "GEMINI_API_KEY loaded?",
+  process.env.GEMINI_API_KEY ? "yes" : "no"
+);
 export type AgentCallback = (log: AgentLog) => void;
 
 async function retryWithBackoff<T>(
